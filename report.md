@@ -10,9 +10,7 @@ Openverse is a platform and search engine for openly licensed media content, suc
 
 ## Onboarding experience
 
-We had not worked with the project beforehand. The onboarding was quite a bit more time consuming, but that is also in part due to the nature of the project.
-
-If you changed the project, how did your experience differ from before?
+We had not worked with the project beforehand. The onboarding was quite a bit more time consuming, but that is also in part due to the nature of the project. For example, the previous project we worked on only had one main component that you would run and test. In the case of Openverse, it consists of many different parts that can be ran and tested independently. Fortunately the documentation on how to run and test the frontend was good.
 
 ## Effort spent
 
@@ -42,7 +40,7 @@ Benjamin:
 Felix:
 Isadora:
 Jonatan:
-Rasmus: 2, 1, 4, 3, 4, 5, 1, 1
+Rasmus: 2, 1, 5, 3, 4, 6, 1, 1
 
 ## Overview of issue(s) and work done.
 
