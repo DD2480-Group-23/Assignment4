@@ -81,7 +81,38 @@ refactoring).
 
 ### Key changes/classes affected
 
-Optional (point 1): Architectural overview.
+**Optional (point 1): Architectural overview.**
+
+The purpose of Openverse is to provide a platform for creators to find and use openly licensed content. The key is to make it easier for content creators to discover and use a wide range of openly licensed media assets such as images, audio, and videos and more for their projects.
+
+The architecture, consists of the following parts:
+
+![System Architecture](SystemArchitecture.png)
+
+#### User interface
+
+The user interface serves as the front-end of the Openverse platform, providing users with a visually appealing and intuitive interface to interact with the system. This is how a user can easily interact with the content available at the platform. The official openverse user interface consists of the search engine that may be found at https://openverse.org/en-gb.
+
+#### API
+
+The API acts as an entry point for client applications to interact with the various features within Openverse. Most notably it lets developers access the content through their own applications. Many apps and extensions are powered by this API, such as the official [search engine](https://openverse.org/en-gb) or the extension to [slack](https://openverse-slack.sarayourfriend.pictures/slack/).
+
+The API handles authentication through tokens, querying of images, audio and other forms of content based on content creator, source or tags. It also allows the developer to get stats for images.
+
+#### Catalog
+
+The catalog consists of two parts, an airflow instance and a postgres instance. Airflow is used for managing complex workflows and data pipelines. In this case it has two different deployment mechanisms: service deployments and DAG deployments. 
+
+The Postgres database is hosted on AWS and acts as the primary storage for all ingested media.
+
+#### Ingestion Server
+
+The Ingestion Server is a small API for copying data from an external source and loading it into the Openverse API. It is needed for collecting, processing, and storing incoming data efficiently and reliably.
+
+#### Automation
+
+Automation refers to scripts and tools that aim to automate various workflows and processes related to the management of the project. This is for example used in integration with CI, as it allows for setting git commit statuses etc. This integrates with multiple different parts of the system architecture.
+
 
 Optional (point 2): relation to design pattern(s).
 
