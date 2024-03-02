@@ -93,4 +93,6 @@ How did you grow as a team, using the Essence standard to evaluate yourself?
 
 Optional (point 6): How would you put your work in context with best software engineering practice?
 
+Starting with the requirements, while they were given as the issue was already created – and thus they align with stakeholder scope – they did influence the work a lot. It could also be noted that there were many drawbacks with the requirements given in the issue, when referencing the checklist in Essence (p.38) it is clear that the requirements given were not meeting all points. The scope was somewhat defined, but there is a clear lack of answers to the question: Why should these requirements/changes be implemented? Which makes the coherence suffer. Thus something we could have done better was to understand the requirements better and document the actual point of why the changes are necessary.
+
 Optional (point 7): Is there something special you want to mention here?
