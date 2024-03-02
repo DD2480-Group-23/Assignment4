@@ -118,10 +118,20 @@ Optional (point 2): relation to design pattern(s).
 
 What are your main take-aways from this project? What did you learn?
 
+- Documentation and onboarding is increadibly important
+- Issues, forking and other github features are really useful when working on open source projects
+- Add more here
+
 How did you grow as a team, using the Essence standard to evaluate yourself?
 
-Optional (point 6): How would you put your work in context with best software engineering practice?
+As a team, we are in the collaborating stage.
 
-Starting with the requirements, while they were given as the issue was already created – and thus they align with stakeholder scope – they did influence the work a lot. It could also be noted that there were many drawbacks with the requirements given in the issue, when referencing the checklist in Essence (p.38) it is clear that the requirements given were not meeting all points. The scope was somewhat defined, but there is a clear lack of answers to the question: Why should these requirements/changes be implemented? Which makes the coherence suffer. Thus something we could have done better was to understand the requirements better and document the actual point of why the changes are necessary.
+**Optional (point 6): How would you put your work in context with best software engineering practice?**
 
-Optional (point 7): Is there something special you want to mention here?
+Starting with the requirements, while they were given as the issue was already created – and thus they align with stakeholder scope – they did influence the work a lot. It could also be noted that there were many drawbacks with the requirements given in the issue, when referencing the checklist in Essence (p.38) it is clear that the requirements given were not meeting all points. The scope was somewhat defined, but there is a clear lack of answers to the question: Why should these requirements/changes be implemented? Which makes the coherence suffer. There is no link between the requirement and what opportunity it is addressing. Thus something we could have done better was to understand the requirements better and document the actual point of why the changes are necessary.
+
+As for the alpha: Work, we have moved throughout the different states during the project. We initiated the work through clear priorities and then prepared for the work. The issue was broken down into smaller issues that allowed for us to parallelise the work. A drawback here is that we potentially could have covered more issues if we wouldn't have split up the issue into multiple smaller ones, since this meant every team member had to go through the initial learning phase of the issue. That being said, we put a plan in place, after which we started the work. We monitored the progress through issue trackers in a forked repository, which worked really well. The work was always under control and the initial tasks were completed on time. That being said, we did not have time to complete all the issues we continuously added. Something that we could have improved upon by setting up a clearer plan at the start, with more issues lined up, that way we could have structured all of the work better. As for concluding the work, our patch has not yet been accepted by Openverse, so this remains to be seen. We have documented our lessons learned in this report which has been really helpful, apart from some uncompleted issues, the initial work is complete with no tasks outstanding.
+
+**Optional (point 7): Is there something special you want to mention here?**
+
+- We have done work on two different projects, both: [Openverse](https://github.com/WordPress/openverse) and [Companion](https://github.com/bitfocus/companion).
