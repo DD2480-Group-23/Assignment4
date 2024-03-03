@@ -2,11 +2,21 @@
 
 ## Project
 
+### Main project
+
 Name: Openverse
 
 URL: https://github.com/WordPress/openverse
 
 Openverse is a platform and search engine for openly licensed media content, such as  GPL-compatible images, audio, and more.
+
+### Second project
+
+Name Companion
+
+URL: https://github.com/bitfocus/companion
+
+Bitfocus Companion enables the user to customize their Elgato streamdeck.
 
 ## Onboarding experience
 
