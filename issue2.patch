@@ -1,0 +1,252 @@
+diff --git a/companion/lib/Controls/ControlTypes/Button/Normal.js b/companion/lib/Controls/ControlTypes/Button/Normal.js
+index cbd09b25..50c9c13d 100644
+--- a/companion/lib/Controls/ControlTypes/Button/Normal.js
++++ b/companion/lib/Controls/ControlTypes/Button/Normal.js
+@@ -960,6 +960,25 @@ export default class ControlButtonNormal extends ButtonControlBase {
+ 		return false
+ 	}
+ 
++	/**
++	 * Rename step
++	 * @param {string} stepId the id of the action-set
++	 * @param {string | undefined} newName the new name of the step
++	 * @returns {boolean} success
++	 * @access public
++	 */
++	stepRename(stepId, newName) {
++		if (this.steps[stepId]) {
++			if (newName !== undefined) {
++				this.steps[stepId].rename(newName)
++			}
++			this.commitChange(true)
++			return true
++		}
++
++		return false
++	}
++
+ 	/**
+ 	 * Convert this control to JSON
+ 	 * To be sent to the client and written to the db
+@@ -974,6 +993,7 @@ export default class ControlButtonNormal extends ButtonControlBase {
+ 			stepsJson[id] = {
+ 				action_sets: step.action_sets,
+ 				options: step.options,
++				name: step.name,
+ 			}
+ 		}
+ 
+diff --git a/companion/lib/Controls/Controller.js b/companion/lib/Controls/Controller.js
+index 70508d55..a76447d0 100644
+--- a/companion/lib/Controls/Controller.js
++++ b/companion/lib/Controls/Controller.js
+@@ -697,6 +697,17 @@ class ControlsController extends CoreBase {
+ 			}
+ 		})
+ 
++		client.onPromise('controls:step:rename', (controlId, stepId, newName) => {
++			const control = this.getControl(controlId)
++			if (!control) return false
++
++			if (control.supportsSteps) {
++				return control.stepRename(stepId, newName)
++			} else {
++				throw new Error(`Control "${controlId}" does not support steps`)
++			}
++		})
++
+ 		client.onPromise('triggers:subscribe', () => {
+ 			client.join(TriggersListRoom)
+ 
+diff --git a/companion/lib/Controls/Fragments/FragmentActions.js b/companion/lib/Controls/Fragments/FragmentActions.js
+index 96f125d8..fea70182 100644
+--- a/companion/lib/Controls/Fragments/FragmentActions.js
++++ b/companion/lib/Controls/Fragments/FragmentActions.js
+@@ -42,6 +42,12 @@ export default class FragmentActions extends CoreBase {
+ 	 */
+ 	options
+ 
++	/**
++	 * @type {string | undefined}
++	 * @access public
++	 */
++	name
++
+ 	/**
+ 	 * Commit changes to the database and disk
+ 	 * @type {(redraw?: boolean) => void}
+@@ -552,4 +558,14 @@ export default class FragmentActions extends CoreBase {
+ 
+ 		return changed
+ 	}
++
++	/**
++	 * Rename this control
++	 * @param {string} newName the new name
++	 * @returns {void}
++	 * @access public
++	 */
++	rename(newName) {
++		this.name = newName
++	}
+ }
+diff --git a/companion/lib/Controls/IControlFragments.js b/companion/lib/Controls/IControlFragments.js
+index 29a8d75c..a03cbd40 100644
+--- a/companion/lib/Controls/IControlFragments.js
++++ b/companion/lib/Controls/IControlFragments.js
+@@ -89,6 +89,17 @@ export class ControlWithSteps extends ControlBase {
+ 	stepSwap(_stepId1, _stepId2) {
+ 		throw new Error('Not implemented')
+ 	}
++
++	/**
++	 * Rename step
++	 * @param {string} _stepId the id of the action-set
++	 * @param {string | undefined} _newName The new name of the step
++	 * @returns {boolean} success
++	 * @access public
++	 */
++	stepRename(_stepId, _newName) {
++		throw new Error('Not implemented')
++	}
+ }
+ 
+ /**
+diff --git a/shared-lib/lib/Model/ButtonModel.ts b/shared-lib/lib/Model/ButtonModel.ts
+index 9034fad7..206bf40a 100644
+--- a/shared-lib/lib/Model/ButtonModel.ts
++++ b/shared-lib/lib/Model/ButtonModel.ts
+@@ -32,6 +32,7 @@ export type NormalButtonSteps = Record<
+ 	{
+ 		action_sets: ActionSetsModel
+ 		options: ActionStepOptions
++		name?: string
+ 	}
+ >
+ 
+diff --git a/shared-lib/lib/SocketIO.ts b/shared-lib/lib/SocketIO.ts
+index 33b6119c..2db2eb63 100644
+--- a/shared-lib/lib/SocketIO.ts
++++ b/shared-lib/lib/SocketIO.ts
+@@ -172,6 +172,7 @@ export interface ClientToBackendEventsMap {
+ 	'controls:step:remove': (controlId: string, stepId: string) => boolean
+ 	'controls:step:swap': (controlId: string, stepId1: string, stepId2: string) => boolean
+ 	'controls:step:set-current': (controlId: string, stepId: string) => boolean
++	'controls:step:rename': (controlId: string, stepId: string, newName: string) => boolean
+ 
+ 	'controls:event:set-headline': (controlId: string, eventId: string, headline: string) => boolean
+ 	'controls:event:enabled': (controlId: string, eventId: string, enabled: boolean) => boolean
+diff --git a/webui/src/Buttons/EditButton.tsx b/webui/src/Buttons/EditButton.tsx
+index 6be6b926..df986082 100644
+--- a/webui/src/Buttons/EditButton.tsx
++++ b/webui/src/Buttons/EditButton.tsx
+@@ -40,11 +40,12 @@ import React, {
+ 	useState,
+ 	useMemo,
+ 	FormEvent,
++	useReducer,
+ } from 'react'
+ import { nanoid } from 'nanoid'
+ import { ButtonPreviewBase } from '../Components/ButtonPreview.js'
+ import { GenericConfirmModal, GenericConfirmModalRef } from '../Components/GenericConfirmModal.js'
+-import { KeyReceiver, LoadingRetryOrError, socketEmitPromise, SocketContext, MyErrorBoundary } from '../util.js'
++import { KeyReceiver, LoadingRetryOrError, socketEmitPromise, SocketContext, MyErrorBoundary, CompanionSocketType } from '../util.js'
+ import { ControlActionSetEditor } from '../Controls/ActionSetEditor.js'
+ import jsonPatch, { Operation as JsonPatchOperation } from 'fast-json-patch'
+ import { ButtonStyleConfig } from '../Controls/ButtonStyleConfig.js'
+@@ -372,6 +373,59 @@ interface TabsSectionProps {
+ 	feedbacks: FeedbackInstance[]
+ }
+ 
++interface TabStepProps{
++	selectedKey: string | false
++	k: string | number
++	i: number
++	name:string | undefined
++	inputState: {showInputEle:boolean}
++	linkClassname: string | undefined
++	socket: CompanionSocketType
++	controlId: string
++
++}
++function TabStep({selectedKey, k, i, name, inputState, linkClassname, socket, controlId }: TabStepProps){
++
++	const renameStep = useCallback(
++		(stepId: string, newName: string) => {
++			socketEmitPromise(socket, 'controls:step:rename', [controlId, stepId, newName]).catch((e) => {
++				console.error('Failed to rename step:', e)
++			})
++		},
++		[socket, controlId]
++	)
++	
++	function onChangeHandler(e: React.ChangeEvent<HTMLInputElement>){
++		setState({showInputEle: state.showInputEle});
++		if(selectedKey){
++			renameStep(selectedKey, e.target.value);
++		}
++	}
++
++	const [state, setState] = useState(inputState);
++	return (
++		<CNavItem key={k} className="nav-steps-special">
++			{state.showInputEle? (
++				<CNavLink className={linkClassname}>
++				<input
++					type="text"
++					value={name}
++					onChange={(e)=>{onChangeHandler(e)}}
++					onKeyDown={(e)=>{e.key === 'Enter' && setState({showInputEle: false})}}
++					onBlur={(e)=>setState({showInputEle: false})}
++					autoFocus
++				>			
++				</input>
++				</CNavLink>
++			) : (
++				<CNavLink onDoubleClick={(e)=>setState({showInputEle: true})} data-tab={`step:${k}`} className={linkClassname}>
++					{name && name !== "" ? name : (i === 0 ? 'Step ' + (i + 1) : i + 1)}
++				</CNavLink>
++		)}	
++		</CNavItem>
++	);
++}
++
+ function TabsSection({ style, controlId, location, steps, runtimeProps, rotaryActions, feedbacks }: TabsSectionProps) {
+ 	const socket = useContext(SocketContext)
+ 
+@@ -462,6 +516,14 @@ function TabsSection({ style, controlId, location, steps, runtimeProps, rotaryAc
+ 		},
+ 		[socket, controlId]
+ 	)
++	const renameStep = useCallback(
++		(stepId: string, newName: string) => {
++			socketEmitPromise(socket, 'controls:step:rename', [controlId, stepId, newName]).catch((e) => {
++				console.error('Failed to rename step:', e)
++			})
++		},
++		[socket, controlId]
++	)
+ 
+ 	const appendSet = useCallback(
+ 		(stepId: string) => {
+@@ -506,17 +568,15 @@ function TabsSection({ style, controlId, location, steps, runtimeProps, rotaryAc
+ 								// both selected and the current step
+ 								const isActiveAndCurrent = k === selectedIndex && runtimeProps.current_step_id === k
+ 
++								const name = steps[k]?.name;
++
+ 								if (moreThanOneStep) {
+ 									if (isActiveAndCurrent) linkClassname = 'selected-and-active'
+ 									else if (isCurrent) linkClassname = 'only-current'
+ 								}
+ 
+ 								return (
+-									<CNavItem key={k} className="nav-steps-special">
+-										<CNavLink data-tab={`step:${k}`} className={linkClassname}>
+-											{i === 0 ? (keys.length > 1 ? 'Step ' + (i + 1) : 'Actions') : i + 1}
+-										</CNavLink>
+-									</CNavItem>
++									<TabStep selectedKey={selectedKey} k={k} i={i} name={name} inputState={{showInputEle:false}} linkClassname={linkClassname} socket={socket} controlId={controlId} ></TabStep>
+ 								)
+ 							})}
+ 
