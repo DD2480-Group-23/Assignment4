@@ -145,3 +145,12 @@ As for the alpha: Work, we have moved throughout the different states during the
 **Optional (point 7): Is there something special you want to mention here?**
 
 - We have done work on two different projects, both: [Openverse](https://github.com/WordPress/openverse) and [Companion](https://github.com/bitfocus/companion).
+
+**Optionnal (point 8):**
+
+WordPress Openverse belongs to the open-source software ecosystem. This means anyone is free to look at the source code, modify it, or contribute to the project through solving issues or improving the documment. This is unlike much of the other proprietary software.
+
+**Does it replace similar proprietary software?**
+While Openverse offers functionalities similar to some proprietary software, it doesn't directly replace them due to a few key reasons:
+
+Proprietary software like Adobe Stock has a wider range of advanced features compared to that of Openverse. The difference is also clear with regards to the target audience. Adobe stock caters to a more professional group of designers, that might need more advanced features. Openverse on the other hand is a user-friendly platform perfect for people who want to use openly licensed media in their online content. Another main benefit of Openverse is that it can easily be integrated with Wordpress websites.
