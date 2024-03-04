@@ -146,7 +146,7 @@ As for the alpha: Work, we have moved throughout the different states during the
 
 - We have done work on two different projects, both: [Openverse](https://github.com/WordPress/openverse) and [Companion](https://github.com/bitfocus/companion).
 
-**Optionnal (point 8):**
+**Optional (point 8):**
 
 WordPress Openverse belongs to the open-source software ecosystem. This means anyone is free to look at the source code, modify it, or contribute to the project through solving issues or improving the documment. This is unlike much of the other proprietary software.
 
