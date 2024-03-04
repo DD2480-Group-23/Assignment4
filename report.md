@@ -45,14 +45,38 @@ We had not worked with the project beforehand. The onboarding was quite a bit mo
 - Finishing our issue: 5h
 
 **DOCS**
-- Report writing (creating UML diagram and writing the report): 3h
+- Report writing (creating UML diagram and writing the report): 1.5h
 
 
-**Total: 25:45h**
+**Total: 24:15h**
 
 
 ### Isadora:
+
 ### Jonatan:
+**OPENVERSE**
+- Search for issue: 1h
+- Research about contribution: 0.25h
+- Installing dependencies: 0.5h
+- Starting local dev server: 0.5h
+- Understanding codebase: 0.75h
+- Issue 3, push all props to VButton: 0.5h
+- Issue 2, use span instead of props: 0.5h
+- Writing tests for issue 2 and 3: 2h
+
+**COMPANION**
+- Search for new issue: 1h
+- Installing dependencies: 0,75h
+- Starting local dev server: 1h 
+- Understanding codebase/start coding: 8h
+- Finishing our issue: 5h
+- Improve UI: 1h
+
+**DOCS**
+- Report writing: 2h
+
+**Total: 24,75h**
+
 ### Rasmus: 
 2, 1, 5, 3, 4, 6, 1, 1
 
