@@ -29,6 +29,26 @@ We had not worked with the project beforehand. The onboarding was quite a bit mo
 ## Effort spent
 
 ### Benjamin:
+**OPENVERSE**
+- Search for issue: 1h
+- Understanding project: 3h
+- Research about contribution: 1h
+- Installing dependencies: 0.75h
+- Starting local dev server: 1h
+- Understanding codebase: 2h
+- Understanding Vue.js: 2h
+- Update VTag.vue, issue #4: 0.5h
+
+**COMPANION**
+- Search for new issue: 1h
+- Understanding project: 3h
+- Research about contribution: 1h
+- Understanding codebase: 2h
+
+**DOCS**
+- Report writing: 2h
+
+**Total: 20:15h**
 
 ### Felix:
 **OPENVERSE**
@@ -214,7 +234,7 @@ What are your main take-aways from this project? What did you learn?
 
 - Documentation and onboarding is increadibly important. Clear and comprehensive documentation (i.e. detailed instructions on setting up the development environment) greatly facilitates onboarding.
 - Issues, forking and other github features are really useful when working on open source projects. Issues provide a structured way to track tasks, while forking allowed us as contributors to work on the project.
-- Add more here
+- Open and transparent communication, such as when using communication channels, fosters collaboration.
 
 How did you grow as a team, using the Essence standard to evaluate yourself?
 
