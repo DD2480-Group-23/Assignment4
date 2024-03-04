@@ -24,33 +24,37 @@ We had not worked with the project beforehand. The onboarding was quite a bit mo
 
 ## Effort spent
 
-For each team member, how much time was spent in
+### Benjamin:
 
-1. plenary discussions/meetings;
+### Felix:
+**OPENVERSE**
+- Search for issue: 1h
+- Research about contribution: 0.25h
+- Installing dependencies: 0.5h
+- Starting local dev server: 0.5h
+- Understanding codebase: 0.75h
+- Issue 3, push all props to VButton: 0.5h
+- Issue 2, use span instead of props: 0.5h
+- Writing tests for issue 2 and 3: 2h
 
-2. discussions within parts of the group;
+**COMPANION**
+- Search for new issue: 1h
+- Installing dependencies: 0:45
+- Starting local dev server: 2h (took time because you needed a separate tool, something that i didn’t understand at first)
+- Understanding codebase/stat coding: 8h
+- Finishing our issue: 5h
 
-3. reading documentation;
+**DOCS**
+- Report writing (creating UML diagram and writing the report): 3h
 
-4. configuration and setup;
 
-5. analyzing code/output;
+**Total: 25:45h**
 
-6. writing documentation;
 
-7. writing code;
-
-8. running code?
-
-For setting up tools and libraries (step 4), enumerate all dependencies
-you took care of and where you spent your time, if that time exceeds
-30 minutes.
-
-Benjamin:
-Felix:
-Isadora:
-Jonatan:
-Rasmus: 2, 1, 5, 3, 4, 6, 1, 1
+### Isadora:
+### Jonatan:
+### Rasmus: 
+2, 1, 5, 3, 4, 6, 1, 1
 
 ## Overview of issue(s) and work done.
 
@@ -114,6 +118,10 @@ refactoring).
 ## UML class diagram and its description
 
 ![UML class diagram](VtagUML.png)
+
+
+![UML class diagram](companionUML.png)
+This UML diagram shows key features affected by the issue. This issue spanned the whole stack and shows that TabStep depends on both ButtonModel where the type NormalButtonStep is defined and on the backend changes (ClientConnect and CorntrolButtonNormal).
 
 ### Key changes/classes affected
 
