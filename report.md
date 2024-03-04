@@ -7,6 +7,7 @@
 Name: Openverse
 
 URL: https://github.com/WordPress/openverse
+FORK: https://github.com/DD2480-Group-23/openverse
 
 Openverse is a platform and search engine for openly licensed media content, such as GPL-compatible images, audio, and more.
 
@@ -15,6 +16,7 @@ Openverse is a platform and search engine for openly licensed media content, suc
 Name Companion
 
 URL: https://github.com/bitfocus/companion
+FORK: https://github.com/DD2480-Group-23/companion 
 
 Bitfocus Companion enables the user to customize their Elgato streamdeck.
 
