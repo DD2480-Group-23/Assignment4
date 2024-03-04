@@ -230,15 +230,17 @@ Optional (point 2): relation to design pattern(s).
 
 ## Overall experience
 
-What are your main take-aways from this project? What did you learn?
+#### What are your main take-aways from this project? What did you learn?
 
 - Documentation and onboarding is increadibly important. Clear and comprehensive documentation (i.e. detailed instructions on setting up the development environment) greatly facilitates onboarding.
 - Issues, forking and other github features are really useful when working on open source projects. Issues provide a structured way to track tasks, while forking allowed us as contributors to work on the project.
 - Open and transparent communication, such as when using communication channels, fosters collaboration.
 
-How did you grow as a team, using the Essence standard to evaluate yourself?
+#### How did you grow as a team, using the Essence standard to evaluate yourself?
 
-As a team, we are in the collaborating stage.
+As a team, we are still in the "Performing" state. We believe that the team has gotten to know each other well during the past few weeks of working together as a unit towards the team's goal, while having an open line of honest communication and dialogue. Hence, the "Collaborating" state has been passed.
+
+We feel that we still remain in the "Performing" state. As an improvement from previous team evaluation, we belive that the team has achieved effective progress with backtracking and reworking. However, since all points within the "Performing" state has not been achieved, such as the team not having perfected our ways of continuously adapting to changing contexts, we do not believe that we have reached the "Adjourned" state yet.
 
 **Optional (point 6): How would you put your work in context with best software engineering practice?**
 
