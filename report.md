@@ -24,7 +24,9 @@ Bitfocus Companion enables the user to customize their Elgato streamdeck.
 We had not worked with the project beforehand. The onboarding was quite a bit more time consuming, but that is also in part due to the nature of the project. For example, the previous project we worked on only had one main component that you would run and test. In the case of Openverse, it consists of many different parts that can be ran and tested independently. Fortunately the documentation on how to run and test the frontend was good.
 
 ### Issue 2 (companion)
-
+We had not worked on the project beforehand. However, the GitHub repository has an elaborate guide for developers on how to 
+get started and how to run the project which made the onboarding easier. It also had an easy issue-tracking system with clear
+labels referring to the project folders and clear descriptions of the issues which made it easier to start coding. 
 
 ## Effort spent
 
@@ -76,6 +78,17 @@ We had not worked with the project beforehand. The onboarding was quite a bit mo
 
 
 ### Isadora:
+**COMPANION**
+- Understanding project: 3h
+- Installing dependencies: 2h
+- Starting local dev server: 4h
+- Understanding codebase: 5h
+- Update EditButton.tsx, issue #2: 6h
+
+**DOCS**
+- Report writing: 2h
+
+**Total: 22h**
 
 ### Jonatan:
 **OPENVERSE**
