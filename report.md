@@ -20,7 +20,11 @@ Bitfocus Companion enables the user to customize their Elgato streamdeck.
 
 ## Onboarding experience
 
+### Issue 1 (VTag)
 We had not worked with the project beforehand. The onboarding was quite a bit more time consuming, but that is also in part due to the nature of the project. For example, the previous project we worked on only had one main component that you would run and test. In the case of Openverse, it consists of many different parts that can be ran and tested independently. Fortunately the documentation on how to run and test the frontend was good.
+
+### Issue 2 (companion)
+
 
 ## Effort spent
 
