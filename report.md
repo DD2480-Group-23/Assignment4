@@ -81,8 +81,29 @@ We had not worked with the project beforehand. The onboarding was quite a bit mo
 
 **Total: 24,75h**
 
-### Rasmus: 
-2, 1, 5, 3, 4, 6, 1, 1
+### Rasmus:
+**OPENVERSE**
+- Search for issue: 1h
+- Research about contribution: 0.25h
+- Installing dependencies: 1h
+- Starting local dev server: 0.5h
+- Understanding codebase: 2h
+- Understanding Vue.js: 2h
+- Understanding the documentation: 2h
+- Issue 4, add accessibility tags: 0.5h
+
+  **COMPANION**
+- Understanding project: 2h
+- Installing dependencies: 0,5h
+- Starting local dev server: 1h 
+- Understanding codebase/start coding: 1h
+
+**DOCS**
+- Mapping out the architecutre: 2h
+- Report writing: 6h
+
+**Total: 22h**
+
 
 ## Overview of issue(s) and work done.
 
