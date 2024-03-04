@@ -54,6 +54,8 @@ Rasmus: 2, 1, 5, 3, 4, 6, 1, 1
 
 ## Overview of issue(s) and work done.
 
+### Issue 1
+
 Title: Refactor and improve VTag component
 
 URL: https://github.com/WordPress/openverse/issues/3190
@@ -61,6 +63,18 @@ URL: https://github.com/WordPress/openverse/issues/3190
 The changes include forwarding all props to the inner VButton. Using slots instead of props for content. Accessible labels as well as testing for VTags.
 
 This affects the following components: VTag, VMediaTags, VButton, and VMediaTag.
+
+### Issue 2
+
+Title: Add Custom Names to Step Tabs
+
+URL: https://github.com/bitfocus/companion/issues/2605
+
+The changes include adding a name attribute to step tabs. If the step tap has a name it is shown instead of the standard numbers. The name can be edited by double-clicking the tab.
+
+The changes affects the following components: TabStep, TabSection, ControlButtonNormal, FragmentActions and Controller.
+
+This issue was not fully completed. Work still needs to be done with persisting the name attribute to the backend server.
 
 ## Requirements for the new feature or requirements affected by functionality being refactored
 
