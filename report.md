@@ -74,17 +74,23 @@ This affects the following components: VTag, VMediaTags, VButton, and VMediaTag.
 | 4      | Labels          | Links should have accessible labels to clearly indicate that the link is a tag. | X        |
 | 5      | Tests           | The VTag component should have a test suite.                                    | X        |
 
+### Requirements for issue 2
+
+| **ID** | **Title**    | **Description**                                                                                                                | **Met?** |
+| ------ | ------------ | ------------------------------------------------------------------------------------------------------------------------------ | -------- |
+| 1      | Step name    | Each step component should have a name property. If this name is not empty, it should be displayed instead of the step number. | X        |
+| 2      | Edit name    | The user should be able to edit the step name by double-clicking the tab                                                       | X        |
+| 3      | Persist name | The name should be persisted, so step names remains after application restart.                                                 |          |
+
 ## Code changes
 
 ### Patch
 
-(copy your changes or the add git command to show them)
+[Patch for Issue 1](issue1.patch)
 
-git diff ...
+[Patch for Issue 2](issue2.patch)
 
-Optional (point 4): the patch is clean.
-
-Optional (point 5): considered for acceptance (passes all automated checks).
+Optional (point 4): the patch is clean. Our patches fulfill all criteria for a clean patch.
 
 ## Test results
 
