@@ -191,8 +191,8 @@ Optional (point 2): relation to design pattern(s).
 
 What are your main take-aways from this project? What did you learn?
 
-- Documentation and onboarding is increadibly important
-- Issues, forking and other github features are really useful when working on open source projects
+- Documentation and onboarding is increadibly important. Clear and comprehensive documentation (i.e. detailed instructions on setting up the development environment) greatly facilitates onboarding.
+- Issues, forking and other github features are really useful when working on open source projects. Issues provide a structured way to track tasks, while forking allowed us as contributors to work on the project.
 - Add more here
 
 How did you grow as a team, using the Essence standard to evaluate yourself?
