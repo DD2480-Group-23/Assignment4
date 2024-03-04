@@ -8,7 +8,7 @@ Name: Openverse
 
 URL: https://github.com/WordPress/openverse
 
-Openverse is a platform and search engine for openly licensed media content, such as  GPL-compatible images, audio, and more.
+Openverse is a platform and search engine for openly licensed media content, such as GPL-compatible images, audio, and more.
 
 ### Second project
 
@@ -64,7 +64,15 @@ This affects the following components: VTag, VMediaTags, VButton, and VMediaTag.
 
 ## Requirements for the new feature or requirements affected by functionality being refactored
 
-Optional (point 3): trace tests to requirements.
+### Requirements for issue 1
+
+| **ID** | **Title**       | **Description**                                                                 | **Met?** |
+| ------ | --------------- | ------------------------------------------------------------------------------- | -------- |
+| 1      | Prop Forwarding | All props in the VTag should be forwarded to the inner VButton                  | X        |
+| 2      | Event Emitting  | All events from the inner VButton should be emitted to the VTag                 | X        |
+| 3      | Slot            | The content should be displayed with a slot instead of a prop.                  | X        |
+| 4      | Labels          | Links should have accessible labels to clearly indicate that the link is a tag. | X        |
+| 5      | Tests           | The VTag component should have a test suite.                                    | X        |
 
 ## Code changes
 
@@ -109,7 +117,7 @@ The API handles authentication through tokens, querying of images, audio and oth
 
 #### Catalog
 
-The catalog consists of two parts, an airflow instance and a postgres instance. Airflow is used for managing complex workflows and data pipelines. In this case it has two different deployment mechanisms: service deployments and DAG deployments. 
+The catalog consists of two parts, an airflow instance and a postgres instance. Airflow is used for managing complex workflows and data pipelines. In this case it has two different deployment mechanisms: service deployments and DAG deployments.
 
 The Postgres database is hosted on AWS and acts as the primary storage for all ingested media.
 
@@ -120,7 +128,6 @@ The Ingestion Server is a small API for copying data from an external source and
 #### Automation
 
 Automation refers to scripts and tools that aim to automate various workflows and processes related to the management of the project. This is for example used in integration with CI, as it allows for setting git commit statuses etc. This integrates with multiple different parts of the system architecture.
-
 
 Optional (point 2): relation to design pattern(s).
 
